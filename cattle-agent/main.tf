@@ -18,7 +18,6 @@ resource "rancher2_cluster" "import_cluster" {
 }
 
 locals {
-  k8s_service_account_name = "terraform"
   import_cluster_cmd = rancher2_cluster.import_cluster.cluster_registration_token[0].insecure_command
 }
 
@@ -38,7 +37,7 @@ resource "kubernetes_job" "import_cluster" {
         }
         host_network                    = true
         automount_service_account_token = true
-        service_account_name            = local.k8s_service_account_name
+        service_account_name            = var.service_account_name
         restart_policy                  = "Never"
       }
     }

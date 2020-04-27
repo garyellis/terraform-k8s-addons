@@ -18,6 +18,11 @@ variable "ca_crt" {
   type        = string
 }
 
+variable "service_account_name" {
+  description = "run kubernetes jobs as this service account"
+  type        = string
+}
+
 variable "rancher2_api_url" {
   description = "The rancher server url"
   type        = string
@@ -41,4 +46,10 @@ variable "hyperkube_image" {
 variable "hyperkube_image_tag" {
   type = string
   default = "v1.17.4-rancher1"
+}
+
+variable "labels" {
+  description = "a map of labels applied to resources"
+  type        = map(string)
+  default     = {}
 }

@@ -25,8 +25,10 @@ Import an existing kubernetes cluster to rancher2
 | cluster\_name | the cluster name | `string` | n/a | yes |
 | hyperkube\_image | n/a | `string` | `"rancher/hyperkube"` | no |
 | hyperkube\_image\_tag | n/a | `string` | `"v1.17.4-rancher1"` | no |
+| labels | a map of labels applied to resources | `map(string)` | `{}` | no |
 | rancher2\_api\_url | The rancher server url | `string` | n/a | yes |
 | rancher2\_token\_key | the rancher server authentication token | `string` | n/a | yes |
+| service\_account\_name | run kubernetes jobs as this service account | `string` | n/a | yes |
 
 ## Outputs
 
