@@ -18,7 +18,7 @@ resource "rancher2_cluster" "import_cluster" {
 }
 
 locals {
-  import_cluster_cmd = rancher2_cluster.import_cluster.cluster_registration_token[0].insecure_command
+  insecure_import_cluster_cmd = rancher2_cluster.import_cluster.cluster_registration_token[0].insecure_command
 }
 
 resource "kubernetes_job" "import_cluster" {
@@ -31,9 +31,15 @@ resource "kubernetes_job" "import_cluster" {
       metadata {}
       spec {
         container {
-          name    = "hyperkube"
-          image   = format("%s:%s", var.hyperkube_image, var.hyperkube_image_tag)
-          command = list(local.import_cluster_cmd)
+          name  = "hyperkube"
+          image = format("%s:%s", var.hyperkube_image, var.hyperkube_image_tag)
+          command = [
+            "/bin/sh",
+            "-c"
+          ]
+          args = [
+            local.insecure_import_cluster_cmd
+          ]
         }
         host_network                    = true
         automount_service_account_token = true
