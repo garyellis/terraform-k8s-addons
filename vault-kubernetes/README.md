@@ -10,7 +10,7 @@ Create vault kubernetes auth method for a kubernetes cluster. This terraform mod
 * Terraform v0.12+
 * A Vault cluster running at least version 1.2.
 * A Kubernetes cluster with token-lookups enabled. (on by default in v1.7+)
-* Vault server network connectivity to kubernetes apiserver to make authentication.k8s.io/v1/tokenreviews requests
+* Vault server network connectivity to kubernetes apiserver for authentication.k8s.io/v1/tokenreviews requests
 * Kubernetes cluster network connectivity to the vault server
 
 ## Providers

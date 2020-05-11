@@ -3,5 +3,6 @@ Deploy common kubernetes addons with terraform. This repo includes the following
 
 * cert-manager - deploys the certmanager application
 * cattle-agent - registers a cluster to rancher
+* twistlock-defender - deploys twistlock defender daemonset
 * vault-kubernetes - creates vault kubernetes auth method for a cluster
-* vault-kubernetes-role - creates a vault kubernetes rle for an application
+* vault-kubernetes-role - creates a vault kubernetes role for an application
